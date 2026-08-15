@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChainGuard — Smart Contract Security Auditor</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">Chain<span class="accent">Guard</span></span>
+    </div>
+    <nav>
+      <span class="nav-tag">v1.0.0</span>
+      <span class="status-dot"></span>
+      <span class="status-label">Server Online</span>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="eyebrow">Solidity Smart Contract Auditor</p>
+    <h1>Find vulnerabilities<br/><span class="accent">before attackers do.</span></h1>
+    <p class="sub">Paste your Solidity code. ChainGuard runs Slither, Solhint, and Semgrep analysis — and returns a detailed security report in seconds.</p>
+  </section>
+
+  <!-- Main Panel -->
+  <main class="audit-panel">
+
+    <!-- Input Side -->
+    <div class="panel-input">
+      <div class="panel-label">
+        <span>CONTRACT INPUT</span>
+        <button class="btn-paste" onclick="loadSample()">Load Sample ↓</button>
+      </div>
+      <textarea id="contractCode" placeholder="// Paste your Solidity contract here...
+// Example:
+// pragma solidity ^0.8.0;
+// contract MyToken { ... }"></textarea>
+      <div class="input-meta">
+        <span id="lineCount">0 lines</span>
+        <span id="charCount">0 chars</span>
+      </div>
+      <button class="btn-analyze" id="analyzeBtn" onclick="analyzeContract()">
+        <span class="btn-icon">⬡</span>
+        Run Security Audit
+      </button>
+    </div>
+
+    <!-- Output Side -->
+    <div class="panel-output">
+      <div class="panel-label">
+        <span>AUDIT REPORT</span>
+        <span id="reportBadge" class="report-badge hidden">—</span>
+      </div>
+
+      <div id="placeholder" class="output-placeholder">
+        <div class="placeholder-icon">⬡</div>
+        <p>Your audit report will appear here.</p>
+        <p class="hint">Paste a contract and click <strong>Run Security Audit</strong></p>
+      </div>
+
+      <div id="loadingState" class="loading-state hidden">
+        <div class="spinner"></div>
+        <p class="loading-text">Running analysis pipeline...</p>
+        <div class="pipeline-steps">
+          <div class="step" id="step1">⬡ Slither — Static Analysis</div>
+          <div class="step" id="step2">⬡ Solhint — Linting</div>
+          <div class="step" id="step3">⬡ Semgrep — Pattern Matching</div>
+        </div>
+      </div>
+
+      <div id="reportOutput" class="report-output hidden"></div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <span>ChainGuard &copy; 2025</span>
+    <span>Built with Node.js · Slither · Solhint · Semgrep</span>
+    <a href="https://github.com/" target="_blank" class="gh-link">GitHub ↗</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

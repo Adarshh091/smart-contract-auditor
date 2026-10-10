@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #0a0e1a;
+  --color-bg-surface: #0f1629;
+  --color-bg-card: #131c35;
+  --color-bg-card-hover: #1a2540;
+  --color-border: #1e2d4a;
+  --color-border-bright: #2a3f6a;
+  --color-accent: #00d4ff;
+  --color-accent-dim: #0099bb;
+  --color-accent-glow: rgba(0, 212, 255, 0.15);
+  --color-success: #00ff88;
+  --color-success-dim: #00cc6a;
+  --color-warning: #ffaa00;
+  --color-danger: #ff4444;
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #8892a4;
+  --color-text-muted: #4a5568;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a0e1a;
+  color: #e2e8f0;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1629;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3f6a;
+}
+
+/* Glow pulse animation */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes border-dash {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Drop zone drag-active */
+.dropzone-active {
+  border-color: #00d4ff !important;
+  background-color: rgba(0, 212, 255, 0.05) !important;
+  box-shadow: 0 0 0 1px #00d4ff, inset 0 0 40px rgba(0, 212, 255, 0.04);
+}

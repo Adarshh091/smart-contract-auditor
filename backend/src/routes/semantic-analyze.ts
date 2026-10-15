@@ -16,10 +16,11 @@
 
 import type { Request, Response } from "express";
 
+const GEMINI_MODEL = process.env["GEMINI_MODEL"] || "gemini-3.6-flash";
 const GEMINI_API_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+  `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
-const MODEL_NAME = "Gemini 2.0 Flash";
+const MODEL_NAME = process.env["GEMINI_MODEL"] ? process.env["GEMINI_MODEL"] : "Gemini 3.6 Flash";
 
 export async function semanticAnalyzeRoute(req: Request, res: Response): Promise<void> {
   const apiKey = process.env["GEMINI_API_KEY"];

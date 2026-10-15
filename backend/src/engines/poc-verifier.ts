@@ -18,7 +18,7 @@ import type {
   PocVerificationResult,
   PocVerificationReport,
 } from "../types/poc";
-import { checkForgeAvailability, runDynamicVerification } from "../../../frontend/src/utils/foundry-runner";
+import { checkForgeAvailability, runDynamicVerification } from "../../../frontend/src/utils/foundry-runner.js";
 
 /**
  * Generates a minimal, deterministic Foundry test scenario for a security finding.
